@@ -1,0 +1,362 @@
+[
+    {
+        "id": 1,
+        "deviceType": "computer",
+        "lastUsed": "12/12/2023",
+        "status": "good",
+        "note": "",
+        "classID": "1"
+    },
+    {
+        "id": 2,
+        "deviceType": "projector",
+        "lastUsed": "12/12/2023",
+        "status": "good",
+        "note": "",
+        "classID": "1"
+    },
+    {
+        "id": 3,
+        "deviceType": "computer",
+        "lastUsed": "12/08/2023",
+        "status": "good",
+        "note": "",
+        "classID": "1"
+    },
+    {
+        "id": 4,
+        "deviceType": "computer",
+        "lastUsed": "12/12/2023",
+        "status": "good",
+        "note": "",
+        "classID": "1"
+    },
+    {
+        "id": 5,
+        "deviceType": "computer",
+        "lastUsed": "12/12/2023",
+        "status": "broken",
+        "note": "cannot be turned on",
+        "classID": "1"
+    },
+    {
+        "id": 6,
+        "deviceType": "computer",
+        "lastUsed": "12/12/2023",
+        "status": "normal",
+        "note": "",
+        "classID": "1"
+    },
+    {
+        "id": 7,
+        "deviceType": "computer",
+        "lastUsed": "20/01/2024",
+        "status": "good",
+        "note": "",
+        "classID": "1"
+    },
+    {
+        "id": 8,
+        "deviceType": "computer",
+        "lastUsed": "12/12/2023",
+        "status": "good",
+        "note": "",
+        "classID": "1"
+    },
+    {
+        "id": 9,
+        "deviceType": "computer",
+        "lastUsed": "30/11/2023",
+        "status": "good",
+        "note": "",
+        "classID": "1"
+    },
+    {
+        "id": 10,
+        "deviceType": "computer",
+        "lastUsed": "12/12/2023",
+        "status": "normal",
+        "note": "",
+        "classID": "1"
+    },
+    {
+        "id": 11,
+        "deviceType": "computer",
+        "lastUsed": "17/11/2023",
+        "status": "good",
+        "note": "",
+        "classID": "1"
+    },
+    {
+        "id": 12,
+        "deviceType": "HDMI cables",
+        "lastUsed": "12/12/2023",
+        "status": "normal",
+        "note": "",
+        "classID": "1"
+    },
+    {
+        "id": 1,
+        "deviceType": "projector",
+        "lastUsed": "24/08/2023",
+        "status": "broken",
+        "note": "cannot be turned on",
+        "classID": "2"
+    },
+    {
+        "id": 2,
+        "deviceType": "computer",
+        "lastUsed": "16/12/2023",
+        "status": "good",
+        "note": "",
+        "classID": "2"
+    },
+    {
+        "id": 3,
+        "deviceType": "HDMI cables",
+        "lastUsed": "24/08/2023",
+        "status": "good",
+        "note": "",
+        "classID": "2"
+    },
+    {
+        "id": 4,
+        "deviceType": "computer",
+        "lastUsed": "15/12/2023",
+        "status": "good",
+        "note": "",
+        "classID": "2"
+    },
+    {
+        "id": 5,
+        "deviceType": "computer",
+        "lastUsed": "15/12/2023",
+        "status": "normal",
+        "note": "",
+        "classID": "2"
+    },
+    {
+        "id": 6,
+        "deviceType": "computer",
+        "lastUsed": "12/10/2023",
+        "status": "good",
+        "note": "",
+        "classID": "2"
+    },
+    {
+        "id": 7,
+        "deviceType": "computer",
+        "lastUsed": "15/01/2024",
+        "status": "good",
+        "note": "",
+        "classID": "2"
+    },
+    {
+        "id": 8,
+        "deviceType": "computer",
+        "lastUsed": "12/12/2023",
+        "status": "good",
+        "note": "",
+        "classID": "2"
+    },
+    {
+        "id": 9,
+        "deviceType": "computer",
+        "lastUsed": "16/12/2023",
+        "status": "good",
+        "note": "",
+        "classID": "2"
+    },
+    {
+        "id": 10,
+        "deviceType": "computer",
+        "lastUsed": "16/12/2023",
+        "status": "normal",
+        "note": "",
+        "classID": "2"
+    },
+    {
+        "id": 1,
+        "deviceType": "computer",
+        "lastUsed": "12/12/2023",
+        "status": "good",
+        "note": "",
+        "classID": "3"
+    },
+    {
+        "id": 2,
+        "deviceType": "computer",
+        "lastUsed": "12/10/2023",
+        "status": "good",
+        "note": "",
+        "classID": "3"
+    },
+    {
+        "id": 3,
+        "deviceType": "computer",
+        "lastUsed": "30/08/2023",
+        "status": "good",
+        "note": "",
+        "classID": "3"
+    },
+    {
+        "id": 4,
+        "deviceType": "computer",
+        "lastUsed": "31/08/2023",
+        "status": "good",
+        "note": "",
+        "classID": "3"
+    },
+    {
+        "id": 5,
+        "deviceType": "projector",
+        "lastUsed": "12/10/2023",
+        "status": "broken",
+        "note": "cannot be turned on",
+        "classID": "3"
+    },
+    {
+        "id": 6,
+        "deviceType": "computer",
+        "lastUsed": "16/12/2023",
+        "status": "normal",
+        "note": "",
+        "classID": "3"
+    },
+    {
+        "id": 7,
+        "deviceType": "computer",
+        "lastUsed": "10/01/2024",
+        "status": "good",
+        "note": "",
+        "classID": "3"
+    },
+    {
+        "id": 1,
+        "deviceType": "computer",
+        "lastUsed": "12/12/2023",
+        "status": "good",
+        "note": "",
+        "classID": "4"
+    },
+    {
+        "id": 2,
+        "deviceType": "projector",
+        "lastUsed": "12/12/2023",
+        "status": "normal",
+        "note": "",
+        "classID": "4"
+    },
+    {
+        "id": 3,
+        "deviceType": "HDMI cables",
+        "lastUsed": "12/08/2023",
+        "status": "broken",
+        "note": "",
+        "classID": "4"
+    },
+    {
+        "id": 4,
+        "deviceType": "computer",
+        "lastUsed": "18/12/2023",
+        "status": "good",
+        "note": "",
+        "classID": "4"
+    },
+    {
+        "id": 5,
+        "deviceType": "computer",
+        "lastUsed": "18/12/2023",
+        "status": "broken",
+        "note": "missing CPU",
+        "classID": "4"
+    },
+    {
+        "id": 6,
+        "deviceType": "computer",
+        "lastUsed": "18/12/2023",
+        "status": "broken",
+        "note": "missing motherboard",
+        "classID": "4"
+    },
+    {
+        "id": 7,
+        "deviceType": "computer",
+        "lastUsed": "18/12/2024",
+        "status": "broken",
+        "note": "exploded",
+        "classID": "4"
+    },
+    {
+        "id": 8,
+        "deviceType": "computer",
+        "lastUsed": "12/12/2023",
+        "status": "broken",
+        "note": "exploded",
+        "classID": "4"
+    },
+    {
+        "id": 9,
+        "deviceType": "computer",
+        "lastUsed": "30/11/2023",
+        "status": "broken",
+        "note": "exploded",
+        "classID": "4"
+    },
+    {
+        "id": 10,
+        "deviceType": "computer",
+        "lastUsed": "18/12/2023",
+        "status": "good",
+        "note": "",
+        "classID": "4"
+    },
+    {
+        "id": 11,
+        "deviceType": "computer",
+        "lastUsed": "10/11/2023",
+        "status": "normal",
+        "note": "",
+        "classID": "4"
+    },
+    {
+        "id": 12,
+        "deviceType": "computer",
+        "lastUsed": "29/04/2024",
+        "status": "normal",
+        "note": "",
+        "classID": "4"
+    },
+    {
+        "id": 2,
+        "deviceType": "computer",
+        "lastUsed": "13/04/2024",
+        "status": "good",
+        "note": "",
+        "classID": "6"
+    },
+    {
+        "id": 13,
+        "deviceType": "computer",
+        "lastUsed": "06/06/2066",
+        "status": "normal",
+        "note": "out of timeline",
+        "classID": "6"
+    },
+    {
+        "id": 14,
+        "deviceType": "computer",
+        "lastUsed": "13/04/2024",
+        "status": "good",
+        "note": "",
+        "classID": "6"
+    },
+    {
+        "id": 15,
+        "deviceType": "computer",
+        "lastUsed": "13/04/2024",
+        "status": "good",
+        "note": "",
+        "classID": "6"
+    }
+]

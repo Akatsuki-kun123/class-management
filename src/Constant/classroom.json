@@ -1,0 +1,58 @@
+[
+    {
+        "id": 0,
+        "classNum": "Storage",
+        "lastUsed": "7/7/2022",
+        "numOfDevice": "40",
+        "note": "",
+        "managerID": "1"
+    },
+    {
+        "id": 1,
+        "classNum": "D1-101",
+        "lastUsed": "12/12/2023",
+        "numOfDevice": "12",
+        "note": "",
+        "managerID": "1"
+    },
+    {
+        "id": 2,
+        "classNum": "D1-102",
+        "lastUsed": "12/12/2023",
+        "numOfDevice": "10",
+        "note": "",
+        "managerID": "2"
+    },
+    {
+        "id": 3,
+        "classNum": "D1-103",
+        "lastUsed": "12/12/2023",
+        "numOfDevice": "7",
+        "note": "",
+        "managerID": "3"
+    },
+    {
+        "id": 4,
+        "classNum": "D1-104",
+        "lastUsed": "12/12/2023",
+        "numOfDevice": "12",
+        "note": "",
+        "managerID": "4"
+    },
+    {
+        "id": 5,
+        "classNum": "D1-105",
+        "lastUsed": "10/12/2023",
+        "numOfDevice": "0",
+        "note": "",
+        "managerID": "5"
+    },
+    {
+        "id": 6,
+        "classNum": "D1-201",
+        "lastUsed": "1/12/2023",
+        "numOfDevice": "4",
+        "note": "",
+        "managerID": "1"
+    }
+]
