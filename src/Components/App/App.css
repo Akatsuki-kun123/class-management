@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+#login {
+  margin-top: 20px;
+}
+.login-form {
+  min-width: 300px;
+}
+.login-form-forgot {
+  border: none;
+  float: right;
+}
+.ant-col-rtl .login-form-forgot {
+  float: left;
+}
+.login-form-button {
+  width: 100%;
+}

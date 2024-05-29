@@ -5,34 +5,65 @@ import { Table } from "antd";
 
 import data from "../../../Constant/classroom.json";
 
-const columns = [
-  {
-    title: "Classroom",
-    dataIndex: "classNum",
-    key: "classNum",
-    render: (text, record) => <Link to={`/detail/${record.id}`}>{text}</Link>,
-  },
-  {
-    title: "Last Used",
-    dataIndex: "lastUsed",
-    key: "lastUsed",
-  },
-  {
-    title: "Num of devices",
-    dataIndex: "numOfDevice",
-    key: "numOfDevice",
-  },
-  {
-    title: "Note",
-    key: "note",
-    dataIndex: "note",
-  },
-];
+const ClassList = (props) => {
+  const classesData = [];
+  if (props.schedule == undefined) {
+    data
+      .filter((classroom) => classroom.id != 0)
+      .map((classroom) => {
+        classesData.push(classroom);
+      });
+  } else {
+    props.schedule.map((id) => {
+      data
+        .filter((classroom) => classroom.id == id.classroomId)
+        .map((classroom) => {
+          classroom.time = id.time;
+          classesData.push(classroom);
+        });
+    });
+  }
 
-const ClassList = () => {
-  const classesData = data.filter((classroom) => classroom.id != 0);
+  const listAttribute = [
+    {
+      title: "Classroom",
+      dataIndex: "address",
+      key: "address",
+      render: (text, record) => (
+        <Link to={`/detail/classroom/${record.id}`}>{text}</Link>
+      ),
+    },
+    props.schedule
+      ? {
+          title: "Time",
+          key: "time",
+          render: (record) => <div>{record.time}</div>,
+        }
+      : {
+          title: "Last Used",
+          dataIndex: "lastUsed",
+          key: "lastUsed",
+        },
+    {
+      title: "Num of devices",
+      dataIndex: "facilityAmount",
+      key: "facilityAmount",
+    },
+    {
+      title: "Note",
+      dataIndex: "note",
+      key: "note",
+    },
+  ];
 
-  return <Table columns={columns} dataSource={classesData} />;
+  return (
+    <Table
+      scroll={{ y: props.scroll ? props.scroll : 700 }}
+      columns={listAttribute}
+      dataSource={classesData}
+      pagination={{ pageSize: props.pageSize ? props.pageSize : 23 }}
+    />
+  );
 };
 
 export default ClassList;
