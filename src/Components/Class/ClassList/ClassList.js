@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Table } from "antd";
+import { Table, Space, Button } from "antd";
+import { EditOutlined } from "@ant-design/icons";
 
 import data from "../../../Constant/classroom.json";
 
-const ClassList = (props) => {
+const ClassTable = (props) => {
   const classesData = [];
   if (props.schedule == undefined) {
     data
@@ -58,7 +59,7 @@ const ClassList = (props) => {
 
   return (
     <Table
-      scroll={{ y: props.scroll ? props.scroll : 700 }}
+      scroll={{ y: props.scroll ? props.scroll : 600 }}
       columns={listAttribute}
       dataSource={classesData}
       pagination={{ pageSize: props.pageSize ? props.pageSize : 23 }}
@@ -66,4 +67,19 @@ const ClassList = (props) => {
   );
 };
 
-export default ClassList;
+const ClassList = () => {
+  return (
+    <Space direction="vertical" size={50}>
+      <Space style={{ marginTop: 20, marginLeft: 50 }}>
+        <div class="text-2xl font-bold">Classrooms Information</div>
+        <Button style={{ border: "none" }}>
+          <EditOutlined style={{ fontSize: 20 }} />
+        </Button>
+      </Space>
+
+      <ClassTable></ClassTable>
+    </Space>
+  );
+};
+
+export { ClassList as ClassList, ClassTable as ClassTable };

@@ -37,6 +37,17 @@
   }
 }
 
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity)) /* #ffffff */;
+}
+.absolute {
+  position: absolute;
+}
+.right-16 {
+  right: 4rem /* 64px */;
+}
+
 #login {
   margin-top: 20px;
 }
@@ -52,4 +63,18 @@
 }
 .login-form-button {
   width: 100%;
+}
+
+.ant-layout-header {
+  display: "flex";
+  position: "relative";
+  align-items: "center";
+}
+.ant-layout-content {
+  margin: 0;
+  padding: 24;
+  min-height: 280;
+}
+.ant-btn:hover {
+  background-color: black !important;
 }

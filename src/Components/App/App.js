@@ -7,17 +7,19 @@ import {
   useNavigate,
   BrowserRouter,
   createBrowserRouter,
-  json,
 } from "react-router-dom";
 
 import {
   Menu,
   Form,
   theme,
+  Image,
+  Space,
   Modal,
   Input,
   Layout,
   Button,
+  message,
   Checkbox,
   Breadcrumb,
 } from "antd";
@@ -28,15 +30,15 @@ import {
   NotificationOutlined,
 } from "@ant-design/icons";
 
+import ReportSider from "../Report/ReportSider.js";
+import DeviceDetail from "../Device/DeviceDetail.js";
 import UserList from "../User/UserList/UserList.js";
 import UserDetail from "../User/UserDetail/UserDetail.js";
-import DeviceDetail from "../Device/DeviceDetail.js";
-import ClassList from "../Class/ClassList/ClassList.js";
+import { ClassList } from "../Class/ClassList/ClassList.js";
 import ClassDetail from "../Class/ClassDetail/ClassDetail.js";
 
+import usersData from "../../Constant/user.json";
 import useWindowDimensions from "../hook/useWindowDimensions.js";
-import ReportSider from "../Report/ReportSider.js";
-import Password from "antd/es/input/Password.js";
 
 const { Header, Content, Sider } = Layout;
 const items1 = ["1", "2", "3"].map((key) => ({ key, label: `nav ${key}` }));
@@ -64,7 +66,7 @@ const NavBar = () => {
       icon: React.createElement(UserOutlined),
       label: `Account`,
       onClick: () => {
-        nav("/");
+        nav("/accountList");
       },
     },
     {
@@ -111,7 +113,21 @@ const App = () => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
-  const [user, setUser] = useState(null);
+  const [messageApi, contextHolder] = message.useMessage();
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: "Login successfully, welcomeback Captain!",
+    });
+  };
+  const error = () => {
+    messageApi.open({
+      type: "error",
+      content: "Wrong email or password, please login again!",
+    });
+  };
+
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
   const [isModalOpen, setIsModalOpen] = useState(true);
   const showModal = () => {
     setIsModalOpen(true);
@@ -120,39 +136,48 @@ const App = () => {
     setIsModalOpen(false);
   };
   const onFinish = (values) => {
-    let newUser = {
+    let logUser = {
       email: values.email,
       password: values.password,
+    };
+    let hasUser = usersData.filter(
+      (user) => user.account.email == logUser.email
+    );
+    if (hasUser.length == 0) {
+      error();
+      return 0;
     }
-    setUser(newUser);
 
+    success();
+    setUser(hasUser[0]);
     if (values.remember) {
-      localStorage.setItem("user", JSON.stringify(newUser, null, '\t'));
+      localStorage.setItem("user", JSON.stringify(hasUser[0], null, "\t"));
     }
 
     setIsModalOpen(false);
   };
 
-  console.log(localStorage.getItem("user"))
-
   return (
     <Layout style={{ minHeight: height, minWidth: width }}>
-      <Header
-        style={{
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <div className="demo-logo" />
-        <Button
-          style={{
-            right: 15,
-            position: "absolute",
-          }}
-          onClick={showModal}
-        >
-          Login
-        </Button>
+      {contextHolder}
+      <Header>
+        <div class="absolute right-16">
+          {user ? (
+            <Button type="" style={{ minHeight: 62, border: "none", backgroundColor: "#001529" }}>
+              <Space>
+                <Image
+                  src={`https://api.dicebear.com/7.x/miniavs/svg?seed=${user.accountID}`}
+                  width={40}
+                  height={40}
+                  preview={false}
+                />
+                <div class="text-white">{user.fullName}</div>
+              </Space>
+            </Button>
+          ) : (
+            <Button onClick={showModal}>Login</Button>
+          )}
+        </div>
       </Header>
 
       <BrowserRouter>
@@ -176,16 +201,16 @@ const App = () => {
 
             <Content
               style={{
-                margin: 0,
-                padding: 24,
-                minHeight: 280,
                 background: colorBgContainer,
                 borderRadius: borderRadiusLG,
               }}
             >
               {user ? (
                 <Routes>
-                  <Route path="/" element={<UserList></UserList>}></Route>
+                  <Route
+                    path="/accountList"
+                    element={<UserList></UserList>}
+                  ></Route>
 
                   <Route
                     path="/account/:accountID"

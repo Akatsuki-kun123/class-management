@@ -20,7 +20,7 @@ import Capitalize from "../../hook/capitalize";
 
 import usersData from "../../../Constant/user.json";
 import schedule from "../../../Constant/schedule.json";
-import ClassList from "../../Class/ClassList/ClassList";
+import { ClassTable } from "../../Class/ClassList/ClassList";
 
 const UserDetail = () => {
   const params = useParams();
@@ -117,9 +117,7 @@ const UserDetail = () => {
 
             <div class="ml-10">
               <Image
-                src={`https://api.dicebear.com/7.x/miniavs/svg?seed=${
-                  userData.accountID
-                }`}
+                src={`https://api.dicebear.com/7.x/miniavs/svg?seed=${userData.accountID}`}
                 width={200}
                 height={200}
               />
@@ -146,7 +144,11 @@ const UserDetail = () => {
 
         <Space direction="vertical" size={25}>
           <div class="text-2xl font-bold">Schedule</div>
-          <ClassList schedule={userSchedule} pageSize={3} scroll={100}></ClassList>
+          <ClassTable
+            schedule={userSchedule}
+            pageSize={5}
+            scroll={300}
+          ></ClassTable>
         </Space>
       </Space>
     </div>
