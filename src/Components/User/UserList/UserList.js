@@ -39,9 +39,19 @@ const userAttribute = [
 const UserList = () => {
   const classesData = data.filter((classroom) => classroom.id != 0);
 
-  const [isAddUser, setAddUser] = useState(false);
-  const showAddModal = () => {
-    setAddUser(true);
+  const [isAddUser, setIsAddUser] = useState(false);
+  const showAddUserModal = () => {
+    setIsAddUser(true);
+  };
+  const handleCancel = () => {
+    setIsAddUser(false);
+  };
+  const onFinishAdd = (values) => {
+    let newAccount = {
+      email: values.email,
+      password: values.password,
+      role: values.role,
+    }
   }
 
   return (
