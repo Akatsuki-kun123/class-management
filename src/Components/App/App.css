@@ -14,14 +14,15 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  min-height: 100vh;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+
   color: white;
+  background-color: #282c34;
+  font-size: calc(10px + 2vmin);
 }
 
 .App-link {
@@ -37,15 +38,33 @@
   }
 }
 
+.ml-6 {
+  margin-left: 1.5rem /* 24px */;
+}
+.h-12 {
+  height: 3rem /* 48px */;
+}
+.h-16 {
+  height: 4rem /* 64px */;
+}
+.right-10 {
+  right: 2.5rem /* 64px */;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.text-center {
+  text-align: center;
+}
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity)) /* #ffffff */;
 }
-.absolute {
-  position: absolute;
-}
-.right-16 {
-  right: 4rem /* 64px */;
+
+.items-center {
+  align-items: center;
 }
 
 #login {
@@ -58,23 +77,37 @@
   border: none;
   float: right;
 }
+.login-form-button {
+  margin-top: 20px;
+  width: 100%;
+}
+#changePassword {
+  margin-top: 20px;
+}
 .ant-col-rtl .login-form-forgot {
   float: left;
 }
-.login-form-button {
-  width: 100%;
+
+#layout-header {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+#layout-content {
+  margin: 0px;
+  padding: 10px;
+  overflow: hidden;
+  min-height: 280px;
 }
 
-.ant-layout-header {
-  display: "flex";
-  position: "relative";
-  align-items: "center";
+#header-btn {
+  border: none;
+  color: black;
+  margin-top: 6px;
+  min-height: 50px;
+  background-color: white;
 }
-.ant-layout-content {
-  margin: 0;
-  padding: 24;
-  min-height: 280;
-}
-.ant-btn:hover {
-  background-color: black !important;
+#header-btn:hover {
+  color: #61dafb;
+  background-color: #588198 !important;
 }

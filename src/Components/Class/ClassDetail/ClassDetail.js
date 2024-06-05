@@ -4,13 +4,13 @@ import { Link, useParams } from "react-router-dom";
 import {
   Form,
   Flex,
+  Table,  
   Empty,
   Input,
   Space,
   Image,
   Button,
   message,
-  Table,
 } from "antd";
 import { EditOutlined } from "@ant-design/icons";
 import TextArea from "antd/es/input/TextArea";
@@ -26,10 +26,10 @@ const ClassDetail = () => {
   const classData = classesData.filter(
     (classroom) => classroom.id == params.classID
   )[0];
-
   const classDevices = devicesData.filter(
     (device) => device.classID == params.classID
   );
+
   const devicesColumns = [
     {
       title: "Name",

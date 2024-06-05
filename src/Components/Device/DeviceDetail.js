@@ -19,11 +19,12 @@ const DeviceDetail = () => {
     (device) => device.id == params.deviceID
   )[0];
   const othersDevice = devicesData.filter(
-    (device) => device.classID == params.classID || device.id != deviceData.id
+    (device) => device.classID == params.classID && device.id != deviceData.id
   );
   const deviceLocaltion = classesData.filter(
     (localtion) => localtion.id == params.classID
   )[0];
+
   const devicesColumns = [
     {
       title: "Name",

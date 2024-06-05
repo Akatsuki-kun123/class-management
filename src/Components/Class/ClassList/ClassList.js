@@ -1,3 +1,5 @@
+import "./ClassList.css";
+
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -70,14 +72,16 @@ const ClassTable = (props) => {
 const ClassList = () => {
   return (
     <Space direction="vertical" size={50}>
-      <Space style={{ marginTop: 20, marginLeft: 50 }}>
+      <Space id="header-container">
         <div class="text-2xl font-bold">Classrooms Information</div>
         <Button style={{ border: "none" }}>
           <EditOutlined style={{ fontSize: 20 }} />
         </Button>
       </Space>
 
-      <ClassTable></ClassTable>
+      <div class="px-10">
+        <ClassTable></ClassTable>
+      </div>
     </Space>
   );
 };
