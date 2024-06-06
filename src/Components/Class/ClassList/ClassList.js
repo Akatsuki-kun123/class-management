@@ -1,10 +1,20 @@
 import "./ClassList.css";
 
 import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Table, Space, Button } from "antd";
-import { EditOutlined } from "@ant-design/icons";
+import {
+  Table,
+  Space,
+  Button,
+  message,
+  Select,
+  Form,
+  Modal,
+  Input,
+} from "antd";
+import { EditOutlined, BankOutlined } from "@ant-design/icons";
 
 import data from "../../../Constant/classroom.json";
 
@@ -70,16 +80,106 @@ const ClassTable = (props) => {
 };
 
 const ClassList = () => {
+  const [messageApi, contextHolder] = message.useMessage();
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: "Successfully add new class!",
+    });
+  };
+
+  const [isAddClass, setIsAddClass] = useState(false);
+  const showAddClassModal = () => {
+    setIsAddClass(true);
+  };
+  const handleCancel = () => {
+    setIsAddClass(false);
+  };
+  const onFinishAdd = (values) => {
+    let newClass = {
+      address: values.address,
+      status: values.status,
+      note: values.note,
+    };
+
+    success();
+    console.log(newClass);
+    setIsAddClass(false);
+  };
+
   return (
     <Space direction="vertical" size={50}>
+      {contextHolder}
       <Space id="header-container">
         <div class="text-2xl font-bold">Classrooms Information</div>
-        <Button style={{ border: "none" }}>
+        <Button style={{ border: "none" }} onClick={showAddClassModal}>
           <EditOutlined style={{ fontSize: 20 }} />
         </Button>
       </Space>
 
       <div class="px-10">
+        <Modal
+          title="New Classroom"
+          open={isAddClass}
+          onCancel={handleCancel}
+          footer={null}
+        >
+          <Form name="addNewClass" onFinish={onFinishAdd}>
+            <Form.Item
+              style={{ marginTop: 25 }}
+              name="address"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input class's address!",
+                },
+              ]}
+            >
+              <Input
+                prefix={<BankOutlined className="site-form-item-icon" />}
+                placeholder="Address"
+              />
+            </Form.Item>
+
+            <Form.Item
+              name="status"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input class's status!",
+                },
+              ]}
+            >
+              <Select
+                placeholder="status"
+                options={[
+                  {
+                    value: "open",
+                    label: "Open",
+                  },
+                  {
+                    value: "close",
+                    label: "Close",
+                  },
+                  {
+                    value: "fixing",
+                    label: "Fixing",
+                  },
+                ]}
+              ></Select>
+            </Form.Item>
+
+            <Form.Item>
+              <Button
+                type="primary"
+                htmlType="submit"
+                className="new-user-form-button"
+              >
+                Confirm
+              </Button>
+            </Form.Item>
+          </Form>
+        </Modal>
         <ClassTable></ClassTable>
       </div>
     </Space>

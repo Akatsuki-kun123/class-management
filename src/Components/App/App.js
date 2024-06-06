@@ -110,6 +110,7 @@ const NavBar = () => {
       <Sider width={200}>
         <Menu
           mode="inline"
+          defaultSelectedKeys={["dashboard"]}
           style={{
             padding: 5,
             height: "100%",
