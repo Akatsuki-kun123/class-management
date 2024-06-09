@@ -9,8 +9,8 @@ import TextArea from "antd/es/input/TextArea";
 
 import Capitalize from "../hook/capitalize";
 
-import devicesData from "../../Constant/device.json";
-import classesData from "../../Constant/classroom.json";
+import devicesData from "../../Constant/initialData/device.json";
+import classesData from "../../Constant/initialData/classroom.json";
 
 const DeviceDetail = () => {
   const params = useParams();

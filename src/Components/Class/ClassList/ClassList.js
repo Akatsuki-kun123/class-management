@@ -5,18 +5,18 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import {
-  Table,
-  Space,
-  Button,
-  message,
-  Select,
   Form,
   Modal,
   Input,
+  Table,
+  Space,
+  Button,
+  Select,
+  message,
 } from "antd";
 import { EditOutlined, BankOutlined } from "@ant-design/icons";
 
-import data from "../../../Constant/classroom.json";
+import data from "../../../Constant/initialData/classroom.json";
 
 const ClassTable = (props) => {
   const classesData = [];

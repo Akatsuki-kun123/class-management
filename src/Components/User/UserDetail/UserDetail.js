@@ -1,16 +1,14 @@
 import "./UserDetail.css";
 
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import {
   Form,
   Flex,
-  Empty,
   Input,
   Space,
   Image,
-  Table,
   Button,
   message,
 } from "antd";
@@ -18,9 +16,9 @@ import { EditOutlined } from "@ant-design/icons";
 
 import Capitalize from "../../hook/capitalize";
 
-import usersData from "../../../Constant/user.json";
-import schedule from "../../../Constant/schedule.json";
 import { ClassTable } from "../../Class/ClassList/ClassList";
+import usersData from "../../../Constant/initialData/user.json";
+import schedule from "../../../Constant/initialData/schedule.json";
 
 const UserDetail = () => {
   const params = useParams();

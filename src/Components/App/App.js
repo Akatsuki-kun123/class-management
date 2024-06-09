@@ -31,6 +31,7 @@ import {
   SolutionOutlined,
   PoweroffOutlined,
   DashboardOutlined,
+  AreaChartOutlined,  
   InfoCircleOutlined,
   NotificationOutlined,
 } from "@ant-design/icons";
@@ -38,12 +39,15 @@ import {
 import Dashboard from "../Dashboard/Dashboard.js";
 import ReportSider from "../Report/ReportSider.js";
 import DeviceDetail from "../Device/DeviceDetail.js";
+import ReportList from "../Report/ReportList/ReportList.js";
+
 import UserList from "../User/UserList/UserList.js";
 import UserDetail from "../User/UserDetail/UserDetail.js";
+
 import { ClassList } from "../Class/ClassList/ClassList.js";
 import ClassDetail from "../Class/ClassDetail/ClassDetail.js";
 
-import usersData from "../../Constant/user.json";
+import usersData from "../../Constant/initialData/user.json";
 import useWindowDimensions from "../hook/useWindowDimensions.js";
 
 const { Header, Content, Sider } = Layout;
@@ -98,6 +102,14 @@ const NavBar = () => {
         nav("/detail/classroom/0");
       },
     },
+    {
+      key: `reports`,
+      icon: React.createElement(AreaChartOutlined),
+      label: `Report`,
+      onClick: () => {
+        nav("/reportList");
+      }
+    }
   ];
 
   return (
@@ -411,6 +423,8 @@ const App = () => {
                   ></Route>
 
                   <Route path="*" element={<Dashboard></Dashboard>}></Route>
+
+                  <Route path="/reportList" element={<ReportList></ReportList>}></Route>
                 </Routes>
               ) : (
                 <Modal

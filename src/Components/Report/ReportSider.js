@@ -2,7 +2,7 @@ import React from "react";
 
 import { Avatar, Flex, List } from "antd";
 
-import reportsData from "../../Constant/report.json";
+import reportsData from "../../Constant/initialData/report.json";
 
 const ReportSider = () => {
   const user = JSON.parse(localStorage.getItem("user"));

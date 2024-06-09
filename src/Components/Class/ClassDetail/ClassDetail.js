@@ -4,21 +4,24 @@ import { Link, useParams } from "react-router-dom";
 import {
   Form,
   Flex,
-  Table,  
+  Table,
   Empty,
   Input,
   Space,
   Image,
   Button,
   message,
+  Select,
+  Modal,
 } from "antd";
 import { EditOutlined } from "@ant-design/icons";
 import TextArea from "antd/es/input/TextArea";
 
 import Capitalize from "../../hook/capitalize";
 
-import devicesData from "../../../Constant/device.json";
-import classesData from "../../../Constant/classroom.json";
+import schedule from "../../../Constant/initialData/schedule.json";
+import devicesData from "../../../Constant/initialData/device.json";
+import classesData from "../../../Constant/initialData/classroom.json";
 
 const ClassDetail = () => {
   const params = useParams();
@@ -26,9 +29,38 @@ const ClassDetail = () => {
   const classData = classesData.filter(
     (classroom) => classroom.id == params.classID
   )[0];
+  if (classData.address == "Storage") {
+    classData.address = "Storage A-666";
+  }
   const classDevices = devicesData.filter(
     (device) => device.classID == params.classID
   );
+  const classSchedule = schedule.filter(
+    (time) => time.classroomId == classData.id
+  );
+
+  const changeableRoomID = schedule.filter(
+    (room) => room.time != classSchedule.time
+  );
+  const options = [];
+  const changeableRooms = [];
+  changeableRoomID.map((id) => {
+    let availableRoom = classesData.filter(
+      (room) => room.id == id.classroomId
+    )[0];
+    let roomName = {
+      label: availableRoom.address,
+      value: availableRoom.address,
+    };
+
+    options.push(roomName);
+    changeableRooms.push(availableRoom);
+  });
+
+  const [messageApi, contextHolder] = message.useMessage();
+  const success = () => {
+    messageApi.success("Finish editing, your class is up to date!");
+  };
 
   const devicesColumns = [
     {
@@ -58,28 +90,106 @@ const ClassDetail = () => {
     },
   ];
 
-  const [messageApi, contextHolder] = message.useMessage();
-  const info = () => {
-    messageApi.info("Sorry you can't edit classroom value :((");
-  };
-
   const [editMode, setEditMode] = useState(false);
   function handleEdit() {
     setEditMode(true);
   }
   function handleCancel() {
     setEditMode(false);
+    setSwitchRoom(false);
   }
+  const [switchRoom, setSwitchRoom] = useState(false);
+  const onChangeToFix = () => {
+    setSwitchRoom(true);
+  };
+
+  const onFinishSwitchRoom = (values) => {};
+
+  const onFinishEdit = (values) => {
+    let isChange = false;
+    let newClassInfo = classData;
+
+    if (values.address) {
+      isChange = true;
+      newClassInfo.address = values.address;
+    }
+    if (values.lastUsed) {
+      isChange = true;
+      newClassInfo.lastUsed = values.lastUsed;
+    }
+    if (values.status != classData.status) {
+      isChange = true;
+      newClassInfo.status = values.status;
+    }
+    if (values.note) {
+      isChange = true;
+      newClassInfo.note = values.note;
+    }
+
+    success();
+    setEditMode(false);
+    //post api to submit class changes
+  };
 
   return (
     <div class="m-10">
       {contextHolder}
       <Space direction="vertical" size={50}>
-        <Form colon={false} onFinish={info} autoComplete="off">
+        <Modal
+          title="Change room for lecturers"
+          open={switchRoom}
+          onCancel={handleCancel}
+          footer={null}
+        >
+          <Form name="changeRoom" onFinish={onFinishSwitchRoom}>
+            <Form.Item
+              name="address"
+              rules={[
+                {
+                  required: true,
+                  message: "Please choose at least one room!",
+                },
+              ]}
+            >
+              <Select placeholder="address" options={options}></Select>
+            </Form.Item>
+
+            <Form.Item
+              style={{ marginTop: 25 }}
+              name="note"
+              rules={[
+                {
+                  required: false,
+                },
+              ]}
+            >
+              <Input
+                //prefix={<BankOutlined className="site-form-item-icon" />}
+                placeholder="Note"
+              />
+            </Form.Item>
+
+            <Form.Item>
+              <Button
+                type="primary"
+                htmlType="submit"
+                className="new-user-form-button"
+              >
+                Confirm
+              </Button>
+            </Form.Item>
+          </Form>
+        </Modal>
+
+        <Form colon={false} onFinish={onFinishEdit} autoComplete="off">
           <Space size={100}>
             <Space direction="vertical" size={50}>
               <Space>
-                <div class="text-2xl font-bold">Classroom's information</div>
+                <div class="text-2xl font-bold">
+                  {classData.address.includes("Storage")
+                    ? `Storage's information`
+                    : `Classroom's information`}
+                </div>
                 <Button style={{ border: "none" }} onClick={handleEdit}>
                   <EditOutlined style={{ fontSize: 20 }} />
                 </Button>
@@ -117,7 +227,24 @@ const ClassDetail = () => {
                     label={<div class="font-bold text-xl">Status:</div>}
                   >
                     {editMode ? (
-                      <Input defaultValue={classData.status}></Input>
+                      <Select
+                        placeholder="status"
+                        onChange={onChangeToFix}
+                        options={[
+                          {
+                            value: "open",
+                            label: "Open",
+                          },
+                          {
+                            value: "close",
+                            label: "Close",
+                          },
+                          {
+                            value: "fixing",
+                            label: "Fixing",
+                          },
+                        ]}
+                      ></Select>
                     ) : (
                       <span class="text-xl">
                         {Capitalize(classData.status)}

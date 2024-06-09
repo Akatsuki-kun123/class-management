@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { Space, Table, Button, Modal, Form, Input, message } from "antd";
-import { EditOutlined, UserOutlined, LockOutlined } from "@ant-design/icons";
+import { EditOutlined, UserOutlined, LockOutlined, AuditOutlined } from "@ant-design/icons";
 
-import data from "../../../Constant/user.json";
+import data from "../../../Constant/initialData/user.json";
 
 const userAttribute = [
   {
@@ -85,7 +85,7 @@ const UserList = () => {
     <Space direction="vertical" size={50}>
       {contextHolder}
       <Space id="header-container">
-        <div class="text-2xl font-bold">Users Information</div>
+        <div class="text-2xl font-bold">Users' Information</div>
         <Button style={{ border: "none" }} onClick={showAddUserModal}>
           <EditOutlined style={{ fontSize: 20 }} />
         </Button>
@@ -157,7 +157,7 @@ const UserList = () => {
               ]}
             >
               <Input
-                prefix={<LockOutlined className="site-form-item-icon" />}
+                prefix={<AuditOutlined  className="site-form-item-icon" />}
                 placeholder="First name"
               />
             </Form.Item>
@@ -172,7 +172,7 @@ const UserList = () => {
               ]}
             >
               <Input
-                prefix={<LockOutlined className="site-form-item-icon" />}
+                prefix={<AuditOutlined className="site-form-item-icon" />}
                 type="password"
                 placeholder="Last name"
               />

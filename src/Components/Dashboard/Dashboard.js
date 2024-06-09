@@ -7,9 +7,9 @@ import { AuditOutlined, UserOutlined, ApiOutlined } from "@ant-design/icons";
 
 import { PieChart } from "@mui/x-charts/PieChart";
 
-import usersData from "../../Constant/user.json";
-import reportData from "../../Constant/report.json";
-import devicesData from "../../Constant/device.json";
+import usersData from "../../Constant/initialData/user.json";
+import reportData from "../../Constant/initialData/report.json";
+import devicesData from "../../Constant/initialData/device.json";
 
 const brokenDevices = devicesData.filter((device) => device.status != "normal");
 
