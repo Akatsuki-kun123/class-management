@@ -11,9 +11,14 @@ import usersData from "../../Constant/initialData/user.json";
 import reportData from "../../Constant/initialData/report.json";
 import devicesData from "../../Constant/initialData/device.json";
 
+const user = JSON.parse(localStorage.getItem("user"));
 const brokenDevices = devicesData.filter((device) => device.status != "normal");
 
 const Dashboard = () => {
+  if (user.account.role == "user") {
+    reportData = reportData.filter((report) => report.userID == user.accountID);
+  }
+
   return (
     <div class="p-5">
       <Flex id="dash-header" align="center" justify="center">

@@ -96,7 +96,7 @@
 #layout-content {
   margin: 0px;
   padding: 10px;
-  overflow: hidden;
+  overflow: auto;  
   min-height: 280px;
 }
 

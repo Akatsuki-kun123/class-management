@@ -22,4 +22,4 @@ async function getClassroomList() {
   return Classrooms;
 }
 
-module.exports.getClassroomList = getClassroomList;
+export { getClassroomList as getClassroomList };

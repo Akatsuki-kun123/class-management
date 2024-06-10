@@ -1,7 +1,9 @@
+import "./ReportList.css";
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { Space, Table, message } from "antd";
+import { Space, Table, message, Button } from "antd";
 import { EditOutlined } from "@ant-design/icons";
 
 import usersData from "../../../Constant/initialData/user.json";
@@ -85,7 +87,9 @@ const ReportList = () => {
       {contextHolder}
       <Space id="header-container">
         <div class="text-2xl font-bold">Report List</div>
-        <EditOutlined style={{ fontSize: 20 }} />
+        <Button style={{ border: "none" }}>
+          <EditOutlined style={{ fontSize: 20 }} />
+        </Button>
       </Space>
 
       <div class="px-10">
